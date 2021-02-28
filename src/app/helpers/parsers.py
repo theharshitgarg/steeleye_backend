@@ -4,10 +4,10 @@ import xml.etree.ElementTree as ET
 class XMLParser():
     """Parser for XML file
     """
+
     def __init__(self):
         self._tree = None
         self._data: str = ""
-
 
     def _parse(self, data):
         return data
@@ -22,6 +22,5 @@ class XMLParser():
                     continue
                 else:
                     return value
-        
+
         return None
-    

@@ -1,11 +1,11 @@
-import requests
-import zipfile
-from loggers import logger
 import os
+import zipfile
 
+import requests
 
-from helpers.parsers import XMLParser
 from helpers.converters import XMLToCSVConverter
+from helpers.parsers import XMLParser
+from loggers import logger
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
 
     if not link:
         logger.warning("No link exists")
-    
+
     response = requests.get(link)
 
     with open('data/zip/xml_download.zip', 'wb') as output:
@@ -25,13 +25,16 @@ def main():
 
     with zipfile.ZipFile('data/zip/xml_download.zip', 'r') as zip_ref:
         zip_ref.extractall('data/unzip')
-    
+
     logger.info("File unzipped successful")
+
     for filename in os.listdir('data/unzip'):
-        print(filename)
+        logger.info(f"Professing file {filename}")
+
         if filename.endswith(".xml"):
             filepath = os.path.join('data/unzip', filename)
-            destination_path = os.path.join('data/csv', '.'.join(filename.split('.')[:-1]) + '.csv')
+            destination_file = '.'.join(filename.split('.')[:-1]) + '.csv'
+            destination_path = os.path.join('data/csv', destination_file)
             converter = XMLToCSVConverter(filepath, destination_path)
             converter.convert()
 
@@ -42,4 +45,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

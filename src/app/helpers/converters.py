@@ -1,8 +1,8 @@
-import xml.sax
 import csv
+import logging
+import xml.sax
 
 from lxml import etree
-import logging
 
 logger = logging.getLogger()
 
@@ -38,13 +38,13 @@ class XMLToCSVConverter():
 
             if elem.tag == 'Id':
                 row['Id'] = elem.text
-            
+
             elif elem.tag == 'FullNm':
                 row['FullNm'] = elem.text
 
             elif elem.tag == 'ShrtNm':
                 row['ShrtNm'] = elem.text
-            
+
             elif elem.tag == 'ClssfctnTp':
                 row['ClssfctnTp'] = elem.text
 
