@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+
+<lst name="responseHeader">
+  <int name="status">0</int>
+  <int name="QTime">0</int>
+  <lst name="params">
+    <str name="q">*</str>
+    <str name="indent">true</str>
+    <str name="start">0</str>
+    <str name="fq">publication_date:[2021-01-17T00:00:00Z TO 2021-01-19T23:59:59Z]</str>
+    <str name="rows">100</str>
+    <str name="wt">xml</str>
+  </lst>
+</lst>
+<result name="response" numFound="4" start="0">
+  <doc>
+    <str name="checksum">852b2dde71cf114289ad95ada2a4e406</str>
+    <str name="download_link">http://firds.esma.europa.eu/firds/DLTINS_20210117_01of01.zip</str>
+    <date name="publication_date">2021-01-17T00:00:00Z</date>
+    <str name="id">46015</str>
+    <str name="published_instrument_file_id">46015</str>
+    <str name="_root_">46015</str>
+    <str name="file_name">DLTINS_20210117_01of01.zip</str>
+    <str name="file_type">DLTINS</str>
+    <long name="_version_">1692816784390881295</long>
+    <date name="timestamp">2021-02-27T03:18:09.655Z</date></doc>
+  <doc>
+    <str name="checksum">3533fe597fc721ed139198503fe87910</str>
+    <str name="download_link">http://firds.esma.europa.eu/firds/DLTINS_20210119_01of02.zip</str>
+    <date name="publication_date">2021-01-19T00:00:00Z</date>
+    <str name="id">46051</str>
+    <str name="published_instrument_file_id">46051</str>
+    <str name="_root_">46051</str>
+    <str name="file_name">DLTINS_20210119_01of02.zip</str>
+    <str name="file_type">DLTINS</str>
+    <long name="_version_">1692816784400318504</long>
+    <date name="timestamp">2021-02-27T03:18:09.664Z</date></doc>
+  <doc>
+    <str name="checksum">4edec7a18a04a8a11c2735f4405acbaf</str>
+    <str name="download_link">http://firds.esma.europa.eu/firds/DLTINS_20210119_02of02.zip</str>
+    <date name="publication_date">2021-01-19T00:00:00Z</date>
+    <str name="id">46052</str>
+    <str name="published_instrument_file_id">46052</str>
+    <str name="_root_">46052</str>
+    <str name="file_name">DLTINS_20210119_02of02.zip</str>
+    <str name="file_type">DLTINS</str>
+    <long name="_version_">1692816784400318505</long>
+    <date name="timestamp">2021-02-27T03:18:09.664Z</date></doc>
+  <doc>
+    <str name="checksum">f88a84bd2423c5016476577d2c2f4687</str>
+    <str name="download_link">http://firds.esma.europa.eu/firds/DLTINS_20210118_01of01.zip</str>
+    <date name="publication_date">2021-01-18T00:00:00Z</date>
+    <str name="id">46032</str>
+    <str name="published_instrument_file_id">46032</str>
+    <str name="_root_">46032</str>
+    <str name="file_name">DLTINS_20210118_01of01.zip</str>
+    <str name="file_type">DLTINS</str>
+    <long name="_version_">1692816784403464234</long>
+    <date name="timestamp">2021-02-27T03:18:09.667Z</date></doc>
+</result>
+<script>(function (o) {
+  const convertToGMT = function (n) {
+    const format = function (v) {return (v &lt; 10 ? '0' : '') + v};
+    return (n &lt;= 0 ? '+' : '-') + format(Math.abs(n) / 60 | 0) + format(Math.abs(n) % 60);
+  };
+  //
+  const resolvedOptions = Intl.DateTimeFormat().resolvedOptions();
+  const {
+    toJSON, getYear, getMonth, getHours, toString, getMinutes, getSeconds, getUTCMonth, getFullYear, getUTCHours,
+    getUTCFullYear, getMilliseconds, getTimezoneOffset, getUTCMilliseconds, toLocaleTimeString, toLocaleDateString,
+    toISOString, toGMTString, toUTCString, toTimeString, toDateString, getUTCSeconds, getUTCMinutes, toLocaleString,
+    getDay, getUTCDate, getUTCDay, getDate
+  } = Date.prototype;
+  //
+  Object.defineProperty(Date.prototype, '_offset', {"configurable": true, get() {return getTimezoneOffset.call(this)}});
+  Object.defineProperty(Date.prototype, '_date', {"configurable": true, get() {
+    return this._nd !== undefined ? this._nd : new Date(this.getTime() + (this._offset - o.value) * 60 * 1000);
+  }});
+  //
+  Object.defineProperty(Date.prototype, 'toJSON', {"value": function () {return toJSON.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getDay', {"value": function () {return getDay.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getDate', {"value": function () {return getDate.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getYear', {"value": function () {return getYear.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getTimezoneOffset', {"value": function () {return Number(o.value)}});
+  Object.defineProperty(Date.prototype, 'getMonth', {"value": function () {return getMonth.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getHours', {"value": function () {return getHours.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getUTCDay', {"value": function () {return getUTCDay.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getUTCDate', {"value": function () {return getUTCDate.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getMinutes', {"value": function () {return getMinutes.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getSeconds', {"value": function () {return getSeconds.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getUTCMonth', {"value": function () {return getUTCMonth.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getUTCHours', {"value": function () {return getUTCHours.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getFullYear', {"value": function () {return getFullYear.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'toISOString', {"value": function () {return toISOString.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'toGMTString', {"value": function () {return toGMTString.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'toUTCString', {"value": function () {return toUTCString.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'toDateString', {"value": function () {return toDateString.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'toTimeString', {"value": function () {return toTimeString.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getUTCSeconds', {"value": function () {return getUTCSeconds.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getUTCMinutes', {"value": function () {return getUTCMinutes.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getUTCFullYear', {"value": function () {return getUTCFullYear.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'toLocaleString', {"value": function () {return toLocaleString.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getMilliseconds', {"value": function () {return getMilliseconds.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'getUTCMilliseconds', {"value": function () {return getUTCMilliseconds.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'toLocaleTimeString', {"value": function () {return toLocaleTimeString.call(this._date)}});
+  Object.defineProperty(Date.prototype, 'toLocaleDateString', {"value": function () {return toLocaleDateString.call(this._date)}});
+  //
+  Object.defineProperty(Intl.DateTimeFormat.prototype, 'resolvedOptions', {"value": function () {return Object.assign(resolvedOptions, {"timeZone": o.name})}});
+  Object.defineProperty(Date.prototype, 'toString', {"value": function () {
+    return toString.call(this._date).replace(convertToGMT(this._offset), convertToGMT(o.value)).replace(/\(.*\)/, '(' + o.name.replace(/\//g, ' ') + ' Standard Time)');
+  }});
+  //
+  document.documentElement.dataset.ctzscriptallow = true;
+})({"name":"Etc/Greenwich","index":150,"value":0})</script></response>
