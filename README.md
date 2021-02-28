@@ -1,6 +1,7 @@
 # Solution to the problem
 
 ## Installation
+
 Follow the steps to install the dependencies.
 
 ### Python Version
@@ -9,11 +10,13 @@ python >=3.8
 
 ### Dependencies
 
+To insall the project dependencies, run the follwing command
+
 ```
 pip install -r requirements.txt
 ```
 
-## Run
+## Run the application
 
 1. Go to project root folder (containing the src folder)
 2. Execute `python src/app/main.py`
@@ -23,3 +26,11 @@ pip install -r requirements.txt
    2. zip folder contains the zipped file downloaded
    3. unzipped folder contains the unzipped folder
    4. log file is generated
+
+## Documentation
+
+To view documentation, run the following command
+
+```
+make doc
+```
