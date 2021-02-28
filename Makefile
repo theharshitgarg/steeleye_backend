@@ -20,3 +20,6 @@ log: clean
 
 run: log
 	python src/app/main.py
+
+doc:
+	httpserver docs/

@@ -1,72 +1,55 @@
 import csv
 import logging
-import xml.sax
 
-from lxml import etree
+
+from processors import XMLProcessor
 
 logger = logging.getLogger()
 
 
 class XMLToCSVConverter():
+    """Conerter class for xml to csv.
+    
+    Attributes
+    ----------
+    FIELDNAMES: list[str]
+        a list of useful output fields
+    source_path : str
+        a  source XML file path
+    destination_path : str
+        a file path for CSV file
+    _xml_processor: XMLProcessor
+        an object that handles XML operations
+
+    Methods
+    -------
+    convert()
+        Converts XML file to CSV
+    """
+
     FIELDNAMES = ['Id', 'FullNm', 'ShrtNm', 'ClssfctnTp', 'NtnlCcy', 'Issr']
 
-    def __init__(self, source_path, destination_path):
+    def __init__(self, source_path: str, destination_path: str):
+        """
+        Parameters
+        ----------
+        source_path : str
+            The source file path
+        destination_path : str
+            The destination file path
+        """
+
         self.source_path = source_path
         self.destination_path = destination_path
-
-    @property
-    def context(self):
-        context = etree.iterparse(
-            self.source_path, events=('start', 'end',),
-            tag='{urn:iso:std:iso:20022:tech:xsd:auth.036.001.02}TermntdRcrd'
-        )
-
-        return context
-
-    def remove_namespace(self, element):
-        for elem in element.findall('.//'):
-            elem.tag = etree.QName(elem.tag).localname
-
-        return element
-
-    def get_data(self, element):
-        element = self.remove_namespace(element)
-        row = {}
-
-        for elem in element.findall('./FinInstrmGnlAttrbts/'):
-            logger.debug("Element : {0} Tag : {1}".format(elem, elem.tag))
-
-            if elem.tag == 'Id':
-                row['Id'] = elem.text
-
-            elif elem.tag == 'FullNm':
-                row['FullNm'] = elem.text
-
-            elif elem.tag == 'ShrtNm':
-                row['ShrtNm'] = elem.text
-
-            elif elem.tag == 'ClssfctnTp':
-                row['ClssfctnTp'] = elem.text
-
-            elif elem.tag == 'NtnlCcy':
-                row['NtnlCcy'] = elem.text
-
-        try:
-            row["Issr"] = element.find('./Issr').text
-
-        except AttributeError:
-            pass
-
-        return row
+        self._xml_processor = XMLProcessor(source_path)
 
     def convert(self):
         with open(self.destination_path, 'w') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=self.FIELDNAMES)
             writer.writeheader()
 
-            for event, elem in self.context:
-                data = self.get_data(elem)
-                print(data)
-                writer.writerow(data)
+            for row in self._xml_processor.get_row_data():
+                print(row)
+                writer.writerow(row)
 
         logger.info("Conversion successful {}".format(self.destination_path))

@@ -12,7 +12,15 @@ class XMLParser():
     def _parse(self, data):
         return data
 
-    def get_first_link(self, path='data/select.xml'):
+    def get_first_link(self, path='data/select.xml') -> str:
+        """Returns the first download link.
+
+        Args:
+            path (str, optional): a valid path to an XML file. Defaults to 'data/select.xml'.
+
+        Returns:
+            [str]: a URL if exists, otherwise empty string. 
+        """
         root = ET.parse(path)
         result = root.findall('*')[1]
         for i in result.findall(".//doc"):
@@ -23,4 +31,4 @@ class XMLParser():
                 else:
                     return value
 
-        return None
+        return ""
