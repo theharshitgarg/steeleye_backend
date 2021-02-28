@@ -75,3 +75,8 @@ tran_venv/
 #### Misc
 .idea
 reference_work
+
+### Data
+data/csv/*.csv
+data/zip/*.zip
+data/unzip/*.xml
