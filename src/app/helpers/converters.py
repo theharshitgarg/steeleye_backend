@@ -2,7 +2,7 @@ import csv
 import logging
 
 
-from processors import XMLProcessor
+from .processors import XMLProcessor
 
 logger = logging.getLogger()
 
