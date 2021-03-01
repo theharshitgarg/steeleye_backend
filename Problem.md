@@ -37,3 +37,5 @@ Brief:
     We expect pydoc for each class and function with optional type hints(nice to have)
     Follows standard logging (no print statements). Logs are essential part of troubleshooting application.
     Unit tests with good code coverage
+
+Note: Refer [this](https://github.com/steeleye/recruitment-ext/wiki/Python-Engineer-Assessment)
